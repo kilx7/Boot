@@ -12,7 +12,7 @@ import threading
 api_id = 0000
 api_hash = "0000"
 
-bot = Client("my_session", api_id, api_hash, bot_token="توكنك")
+bot = Client("my_session", api_id, api_hash, bot_token="5438168648:AAEexWUeL9xUTzzQK6LOiBsKMSwOGmx3OzA")
 
 ss = os.environ.get("STRING", None)
 if ss is not None:
@@ -61,7 +61,7 @@ def progress(current, total, message, type):
 @bot.on_message(filters.command(["start"]))
 def send_start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
 	bot.send_message(message.chat.id, f"__👋 مرحبا **{message.from_user.mention}**\n• انا بوت حفظ المنشورات من القنوات المقيدة ارسل لي رابط المنشور",
-	reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("التحديثات", url="https://t.me/FileeCode")]]), reply_to_message_id=message.id)
+	reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("التحديثات", url="https://")]]), reply_to_message_id=message.id)
 
 
 @bot.on_message(filters.text)
@@ -165,6 +165,7 @@ def handle_private(message,chatid,msgid):
 		os.remove(file)
 		if os.path.exists(f'{message.id}upstatus.txt'): os.remove(f'{message.id}upstatus.txt')
 		bot.delete_messages(message.chat.id,[smsg.id])
+
 
 
 bot.run()
